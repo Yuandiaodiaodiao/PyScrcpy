@@ -1,0 +1,52 @@
+# 基于那个配置文件
+BasedOnStyle: Google
+# 设置代码的最大长度（回自动对代码长度进行换行显示，并对注释自动换行；当长度加大的时候，AllowAllParametersOfDeclarationOnNextLine＝true失效）
+ColumnLimit: 100
+# 指针的*的挨着哪边
+PointerAlignment: Right
+# 缩进宽度
+IndentWidth: 4
+# 连续的空行保留几行
+MaxEmptyLinesToKeep: 1
+# 在 @property 后面添加空格, \@property (readonly) 而不是 \@property(readonly).
+ObjCSpaceAfterProperty: true
+
+
+# OC block后面的缩进
+ObjCBlockIndentWidth: 4
+# 是否允许短方法单行
+AllowShortFunctionsOnASingleLine: false
+# 是否允许短if单行 If true, if (a) return; 可以放到同一行
+AllowShortIfStatementsOnASingleLine: true
+# 注释对齐
+AlignTrailingComments: true
+# 换行的时候对齐操作符
+#AlignOperands: false
+##中括号两边空格 []
+SpacesInSquareBrackets: false
+
+
+
+# 小括号两边添加空格
+SpacesInParentheses : true
+# 多行声明语句按照=对齐
+AlignConsecutiveDeclarations: false
+# 连续的赋值语句以 = 为中心对齐
+AlignConsecutiveAssignments: false
+# 等号两边的空格
+SpaceBeforeAssignmentOperators: true
+# 容器类的空格 例如 OC的字典
+SpacesInContainerLiterals: true
+# 缩进
+IndentWrappedFunctionNames: true
+# 在block从空行开始
+KeepEmptyLinesAtTheStartOfBlocks: true
+# 在构造函数初始化时按逗号断行，并以冒号对齐
+BreakConstructorInitializersBeforeComma: true
+# 函数参数换行
+AllowAllParametersOfDeclarationOnNextLine: true
+# 括号后添加空格
+SpaceAfterCStyleCast: true
+# tab键盘的宽度
+TabWidth: 4
+UseTab: Never
