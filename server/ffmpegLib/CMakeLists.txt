@@ -28,7 +28,7 @@ include_directories(.)
 add_executable(ASremote main2.cpp)
 target_link_libraries(ASremote avformat avutil avcodec avdevice avfilter)
 add_library(dllcore SHARED dlltest.cpp)
-SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../qrAndroid/server/lib)
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../lib)
 add_executable(memcpytest memcpytest.cpp)
 
 
