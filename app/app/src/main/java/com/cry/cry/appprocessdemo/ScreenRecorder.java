@@ -6,6 +6,9 @@ import android.media.MediaCodecInfo;
 import android.media.MediaFormat;
 import android.os.Build;
 import android.os.IBinder;
+import android.system.ErrnoException;
+import android.system.Os;
+import android.system.OsConstants;
 import android.view.Surface;
 
 import com.cry.cry.appprocessdemo.refect.SurfaceControl;
@@ -19,9 +22,9 @@ import java.util.Objects;
 import okio.ByteString;
 
 public class ScreenRecorder {
-    private static final int DEFAULT_FRAME_RATE = 60; // fps
-    private static final int DEFAULT_I_FRAME_INTERVAL = 1; // seconds
-    private static final int DEFAULT_BIT_RATE = (int) 400e6; // 8Mbps
+    private static final int DEFAULT_FRAME_RATE = 30; // fps
+    private static final int DEFAULT_I_FRAME_INTERVAL = 5; // seconds
+    private static final int DEFAULT_BIT_RATE = (int) 10e6; // 8Mbps
     private static final int DEFAULT_TIME_OUT = 10 * 1000; // 2s
 
     private static final int REPEAT_FRAME_DELAY = 6; // repeat after 6 frames
@@ -139,6 +142,7 @@ public class ScreenRecorder {
         int tick = 0;
         long tickstarttime = System.currentTimeMillis();
         int packNum = 0;
+        byte[] bytes = new byte[8192];
         while (!eof) {
 
             Long t1 = System.currentTimeMillis();
@@ -163,8 +167,29 @@ public class ScreenRecorder {
 //                        ByteString bs = ByteString.of(codecBuffer);
 //                        byte[] ba = bs.toByteArray();
 //                        System.out.println("图片大小1=" + ba.length);
-                        SocketManager.getOs().write(ByteString.of(codecBuffer).toByteArray());
+                    int remaining = codecBuffer.remaining();
+//                    System.out.println("remaining="+remaining);
+                    int all=0;
+                    while (remaining > 0) {
+                            int read=Math.min(remaining,bytes.length);
+
+                            codecBuffer.get(bytes,0,read);
+                            remaining -= read;
+                        SocketManager.getOs().write(bytes,0,read);
                         SocketManager.getOs().flush();
+                        all+=read;
+                    }
+                    if(all>4*bytes.length){
+                        System.out.println("扩容到"+bytes.length*2);
+                        bytes=new byte[bytes.length*2];
+                    }
+                    if (tick > 120) {
+                        long fps = (System.currentTimeMillis() - tickstarttime);
+                        fps = Math.round(1.0 * tick / fps * 1000);
+                        System.out.println("android fps=" + fps);
+                        tickstarttime = System.currentTimeMillis();
+                        tick = 0;
+                    }
 //                    }
 //                    System.out.println("before flush");
 //                    Long t3 = System.currentTimeMillis();

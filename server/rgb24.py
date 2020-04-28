@@ -19,6 +19,8 @@ npBuff=np.empty((height*width*3,), dtype = 'uint8')
 #     data[0][index]=1
 
 img = image.reshape((640,360,3)).astype('uint8')
-# bgr_img = cv2.cvtColor(img, cv2.COLOR_YUV420P2RGB)
-cv2.imshow("a",img)
+
+
+bgr_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+cv2.imshow("a",bgr_img)
 cv2.waitKey(0)
