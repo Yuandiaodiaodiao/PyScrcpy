@@ -2,54 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f4462f0-1e81-4cf8-bbd7-46ca94c1120f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/rgb24.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildAndroid2.py" beforeDir="false" afterPath="$PROJECT_DIR$/buildAndroid2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/.idea/caches/gradle_models.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/EventController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/EventFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/HelloWorld.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/IO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/ScreenRecorder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/SocketManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/WebSocketController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/bean/DisplayInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/bean/Size.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/refect/DisplayManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/refect/InputManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/refect/PowerManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/refect/ServiceManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/app/src/main/java/com/cry/cry/appprocessdemo/refect/SurfaceControl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/AppProcessDemo/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ffmpegLib/Decoder.h" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/Decoder.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ffmpegLib/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/server3.dll" beforeDir="false" afterPath="$PROJECT_DIR$/lib/server3.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server2.py" beforeDir="false" afterPath="$PROJECT_DIR$/server2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socketserver3.py" beforeDir="false" afterPath="$PROJECT_DIR$/socketserver3.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -58,6 +29,11 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -78,7 +54,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.server2">
+    <configuration name="rgb24" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rgb24.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="server2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -104,6 +102,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.server2" />
+        <item itemvalue="Python.rgb24" />
       </list>
     </recent_temporary>
   </component>
@@ -117,7 +116,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588028089873</updated>
-      <workItem from="1588028093897" duration="3751000" />
+      <workItem from="1588028093897" duration="5314000" />
+      <workItem from="1588041955735" duration="6157000" />
     </task>
     <servers />
   </component>
@@ -129,7 +129,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -145,18 +147,54 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>173</line>
+          <line>188</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>171</line>
+          <line>186</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server2.py</url>
+          <line>184</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server2.py</url>
+          <line>182</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server2.py</url>
+          <line>165</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server2.py</url>
+          <line>143</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rgb24.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rgb24.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server2.py</url>
+          <line>152</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/server$server2.coverage" NAME="server2 Coverage Results" MODIFIED="1588039286364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$rgb24.coverage" NAME="rgb24 Coverage Results" MODIFIED="1588089522513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$server2.coverage" NAME="server2 Coverage Results" MODIFIED="1588090955528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

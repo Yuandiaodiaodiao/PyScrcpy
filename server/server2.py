@@ -36,7 +36,9 @@ def saveabp(message):
 websocketPackageNum = 0
 drawNum = 0
 
-maxNum=0
+maxNum = 0
+
+
 class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     connect_users = set()
 
@@ -62,9 +64,9 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
         #     return
         lenmessage = len(message)
         global maxNum
-        if lenmessage>maxNum:
+        if lenmessage > maxNum:
             print(f"大包{lenmessage}")
-            maxNum=lenmessage
+            maxNum = lenmessage
         # print(f"websocket len={lenmessage}")
         inputTime1 = time.time()
         dll.inputBuff(message, len(message))
@@ -113,17 +115,18 @@ class Application(tornado.web.Application):
 
 dll = ctypes.CDLL('lib/server3.dll')
 
-height=1280
-width=720
+# height = 1280
+# width = 720
 
-# height = 2216
-# width = 1080
+height = 2220
+width = 1080
 FPS = 11
 SHAPE = 444
 shapeA = height * 3 // 2
 shapeB = width
-
+import cmath
 import matplotlib.pyplot as plt
+
 
 def cvThread(hack):
     print("cvThread启动")
@@ -133,9 +136,10 @@ def cvThread(hack):
     lastTime = time.time()
     cv2.namedWindow("1", flags=cv2.WINDOW_FREERATIO)
     tick = 0
-    bufflen = shapeA * shapeB
+    bufflen = height * width * 3
     global FPS
     buff = ctypes.c_buffer(bufflen)
+    npBuff=np.empty((height*width*3), dtype = 'uint8')
 
     while True:
         try:
@@ -158,18 +162,30 @@ def cvThread(hack):
             #     print(f"sleep {1/FPS - lastUse}")
             #     # time.sleep(1/FPS - lastUse)
             # lastTime = time.time()
-            frame = np.frombuffer(buff.value, 'uint8')
-            lenx=len(frame)
+
+            frame = np.frombuffer(buff.raw, 'uint8',count=height*width*3)
+            # print("start!!!!!!!!!!!!!")
+            # for i in range(100):
+            #     print(frame[i],end=" ")
+            # print('end!!!!!!!')
+            lenx = len(frame)
             print(f"len={lenx}")
 
-            if lenx != bufflen:
-                continue
+            # if lenx != bufflen:
+            #     continue
             solveQps()
-            img = frame.reshape((shapeA, shapeB)).astype('uint8')
-            rgb_img = cv2.cvtColor(img, cv2.COLOR_YUV420p2RGB)
+            # pixels = lenx // 3
+            # # x*x/16*9=1280*720
+            # pixels = pixels // 9 * 16
+            # pixels=cmath.sqrt(pixels).real
+            # x = round(pixels)
+            # y = x // 16 * 9
+            # print(f"RGB {x}:{y}")
+            img = frame.reshape((height, width, 3)).astype('uint8')
+            # rgb_img = cv2.cvtColor(img, cv2.COLOR_YUV420p2RGB)
             cvTime = time.time()
 
-            cv2.imshow("1", rgb_img)
+            cv2.imshow("1", img)
             cv2.waitKey(1)
             # plt.imshow(rgb_img)
             # plt.show()
@@ -188,6 +204,7 @@ def hackSocket():
     with open(f'./frame/message.bin', 'rb') as f:
         while f.readable():
             message = f.read(200000)
+            time.sleep(10)
             if len(message) <= 1:
                 break
             dll.inputBuff(message, len(message))
@@ -200,14 +217,13 @@ hack = 0
 
 def mainx():
     if hack == 2:
-        cvT = threading.Thread(target=cvThread, args=(1,))
-        cvT.start()
+        cvThread(1)
 
     elif hack == 1:
-        cvT = threading.Thread(target=cvThread, args=(0,))
-        cvT.start()
+
         t = threading.Thread(target=hackSocket)
         t.start()
+        cvThread(0)
         # cvT.join()
         # t.join()
     else:
@@ -225,9 +241,6 @@ def mainx():
     # cvT.join()
     dll.wait()
     # else:
-
-
-
 
 
 if __name__ == "__main__":

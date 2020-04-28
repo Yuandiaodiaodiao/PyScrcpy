@@ -25,10 +25,10 @@ Decoder decoder;
 
 int getBuff( uint8_t *buffer ) {
 
-    while(decoder.outputQueue.size()>=2){//直接扔掉
-        cout<<"扔掉"<<endl;
-        decoder.outputQueue.take();
-    }
+//    while(decoder.outputQueue.size()>=2){//直接扔掉
+//        cout<<"扔掉"<<endl;
+//        decoder.outputQueue.take();
+//    }
     buffWithSize buff = decoder.outputQueue.take();
     //    cout<<"output大小="<<buff.size<<endl;
     //    cout<<"output队列长度="<<decoder.inputQueue.size()<<endl;

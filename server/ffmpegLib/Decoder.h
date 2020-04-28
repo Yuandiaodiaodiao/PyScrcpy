@@ -9,6 +9,7 @@ extern "C" {
 #include "libavutil/error.h"
 #include "libavutil/pixfmt.h"
 #include "libswscale/swscale.h"
+#include "libavutil/imgutils.h"
 };
 #include <algorithm>
 #include <iostream>
@@ -19,7 +20,6 @@ using std::endl;
 FILE *fin = nullptr;
 FILE *fin2 = nullptr;
 // extern AVPixelFormat ap;
-AVPixelFormat ap = AV_PIX_FMT_YUV444P;
 
 int read_socket_buffer( void *opaque, uint8_t *buf, int buf_size );
 int read_socket_buffer2( void *opaque, uint8_t *buf, int buf_size );
@@ -28,35 +28,38 @@ int hackRead( void *opaque, uint8_t *buf, int buf_size ) {
     if ( fin == nullptr ) {
         fin = fopen( "message.bin", "rb" );
     }
-    int count = fread( buf, 1, buf_size, fin );
-        cout << "读取" << count << "字节" << endl;
+    int count = fread( buf, 1, 65535, fin );
+//        cout << "读取" << count << "字节" << endl;
     if ( count == 0 ) {
         return -1;
     }
     return count;
 }
+AVPixelFormat ap = AV_PIX_FMT_YUV420P;
 
 class Decoder {
    public:
     BlockingQueue<buffWithSize> inputQueue;
     BlockingQueue<buffWithSize> outputQueue;
     buffWithSize haventReadFinish;
-
+    const static size_t BUF_SIZE = 65535;
+    uint8_t *bufferx;
     Decoder() : haventReadFinish( buffWithSize{nullptr, 0, 0} ) {
         avformat_network_init();
-    }
-    void init( bool hack, int widthx, int heightx ) {
         format_ctx = avformat_alloc_context();
-        auto *buffer = static_cast<unsigned char *>( av_malloc( BUF_SIZE ) );
-        avio_ctx = avio_alloc_context( buffer, BUF_SIZE, 0, this,
-                                       hack ? hackRead : read_socket_buffer2, nullptr, nullptr );
-        format_ctx->pb = avio_ctx;
-        int ret = avformat_open_input( &format_ctx, nullptr, nullptr, nullptr );
+        bufferx= static_cast<uint8_t *>( av_malloc( BUF_SIZE ) );
         codec = avcodec_find_decoder( AV_CODEC_ID_H264 );
         codec->pix_fmts = &ap;
         //        codec->pix_fmts = &ap;
-
         codec_ctx = avcodec_alloc_context3( codec );
+
+    }
+    void init( bool hack, int widthx, int heightx ) {
+        //会预读取然后阻塞
+        avio_ctx = avio_alloc_context( bufferx, BUF_SIZE, 0, this,
+                                       hack ? hackRead : read_socket_buffer2, nullptr, nullptr );
+        format_ctx->pb = avio_ctx;
+        int ret = avformat_open_input( &format_ctx, nullptr, nullptr, nullptr );
         codec_ctx->width = widthx;
         codec_ctx->height = heightx;
         ret = avcodec_open2( codec_ctx, codec, nullptr );
@@ -64,21 +67,25 @@ class Decoder {
         cout << "编码器打开成功" << endl;
     }
     void run() {
+        AVPixelFormat RGB_Fmt=AV_PIX_FMT_BGR24;
         printf( "decoder w = %d ,h =%d \n", codec_ctx->width, codec_ctx->height );
         AVFrame *decode_frame = av_frame_alloc();
         AVFrame *RGB_frame = av_frame_alloc();
-        int numBytes = avpicture_get_size( AV_PIX_FMT_RGB24, codec_ctx->width, codec_ctx->height );
+        RGB_frame->height = codec_ctx->height;
+        RGB_frame->width = codec_ctx->width;
+        RGB_frame->format = RGB_Fmt;
         uint8_t *m_rgbBuffer, *m_yuvBuffer;
-        m_rgbBuffer = (uint8_t *) av_malloc( numBytes * sizeof( uint8_t ) );
+        int numBytes;
         int yuvSize = codec_ctx->width * codec_ctx->height * 3 / 2;
         m_yuvBuffer = (uint8_t *) av_malloc( yuvSize );
         struct SwsContext *m_img_convert_ctx;
         //特别注意sws_getContext内存泄露问题，
         //注意sws_getContext只能调用一次，在初始化时候调用即可，另外调用完后，在析构函数中使用sws_freeContext，将它的内存释放。
         //设置图像转换上下文
-        m_img_convert_ctx = sws_getContext( codec_ctx->width, codec_ctx->height, AV_PIX_FMT_YUV420P,
-                                            codec_ctx->width, codec_ctx->height, AV_PIX_FMT_RGB32,
-                                            SWS_BICUBIC, NULL, NULL, NULL );
+        m_img_convert_ctx = sws_getContext( codec_ctx->width, codec_ctx->height, ap,
+                                            codec_ctx->width, codec_ctx->height, RGB_Fmt,
+                                            SWS_BILINEAR, NULL, NULL, NULL );
+        int isinit=0;
         while ( av_read_frame( format_ctx, packet ) >= 0 ) {
             int ret;
             while ( true ) {
@@ -97,42 +104,38 @@ class Decoder {
             }
 
             ret = avcodec_receive_frame( codec_ctx, decode_frame );
-            int Urate = decode_frame->linesize[0] / decode_frame->linesize[1];
-            int Vrate = decode_frame->linesize[0] / decode_frame->linesize[2];
-            int Ylength = decode_frame->height * decode_frame->width;
-            int Ulength = decode_frame->height * decode_frame->width / Urate / Urate;
-            int Vlength = decode_frame->height * decode_frame->width / Vrate / Vrate;
+            if(isinit==0){
+                isinit=1;
+                numBytes = av_image_get_buffer_size( RGB_Fmt, codec_ctx->coded_width, codec_ctx->coded_height,decode_frame->linesize[0] );
 
-            buffWithSize buff = {new uint8_t[Ylength + Ulength + Vlength],
-                                 Ylength + Ulength + Vlength, 0};
-            //            cout << "输出frame size=" << buff.size << endl;
-            for ( int i = 0; i < decode_frame->height; i++ ) {
-                memcpy( buff.buffer + buff.readIndex,
-                        decode_frame->data[0] + i * decode_frame->linesize[0],
-                        decode_frame->width );
-                buff.readIndex += decode_frame->width;
+                m_rgbBuffer = (uint8_t *) av_malloc( numBytes * sizeof( uint8_t ) );
             }
 
-            for ( int i = 0; i < decode_frame->height / Urate; i++ ) {
-                memcpy( buff.buffer + buff.readIndex,
-                        decode_frame->data[1] + i * decode_frame->linesize[1],
-                        decode_frame->width / Urate );
-                buff.readIndex += decode_frame->width / Urate;
-            }
-            for ( int i = 0; i < decode_frame->height / Vrate; i++ ) {
-                memcpy( buff.buffer + buff.readIndex,
-                        decode_frame->data[2] + i * decode_frame->linesize[2],
-                        decode_frame->width / Vrate );
-                buff.readIndex += decode_frame->width / Vrate;
-            }
-            avpicture_fill( (AVPicture *) RGB_frame, m_rgbBuffer, AV_PIX_FMT_RGB24,
+            avpicture_fill( (AVPicture *) RGB_frame, m_rgbBuffer, RGB_Fmt,
                             decode_frame->width, decode_frame->height );
             sws_scale( m_img_convert_ctx, (uint8_t const *const *) decode_frame->data,
                        decode_frame->linesize, 0, decode_frame->height, RGB_frame->data,
                        RGB_frame->linesize );
-            
+            buffWithSize buff2={new uint8_t[numBytes],numBytes,0};
+
+            for(int i=0;i<decode_frame->height;i++){
+                memcpy(buff2.buffer+buff2.readIndex,m_rgbBuffer+i*RGB_frame->linesize[0],
+                    decode_frame->width*3);
+                buff2.readIndex+=decode_frame->width*3;
+            }
+            buff2.size=buff2.readIndex;
+
+//            FILE * fout1=fopen("../bitmap.bm","wb");
+//            fwrite(buff2.buffer,1,buff2.size,fout1);
+//            fclose(fout1);
+//
+//            for(int i=0;i<=1000;++i){
+//                cout<<(int)*(m_rgbBuffer+i)<<" ";
+//            }
+//            cout<<"输出 buffsize= "<<buff2.readIndex<<"size="<<buff2.size;
+
             if ( ret == 0 ) {
-                outputQueue.put( buff );
+                outputQueue.put( buff2 );
             } else if ( ret == AVERROR( EAGAIN ) ) {
                 break;
             } else {
@@ -156,7 +159,6 @@ class Decoder {
     AVCodec *codec;
     AVCodecContext *codec_ctx;
     AVPacket *packet;
-    const static size_t BUF_SIZE = 65535;
 
     BlockingQueue<buffWithSize> outputRecycle;
 };
