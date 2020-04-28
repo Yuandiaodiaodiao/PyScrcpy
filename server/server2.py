@@ -126,15 +126,34 @@ shapeA = height * 3 // 2
 shapeB = width
 import cmath
 import matplotlib.pyplot as plt
+import win32api,win32con
+
+screenX=win32api.GetSystemMetrics(win32con.SM_CXSCREEN)   #获得屏幕分辨率X轴
+
+screenY=win32api.GetSystemMetrics(win32con.SM_CYSCREEN)
+
+def autosize(screenY,screenX,picw,pich):
+    minsize=min(screenY,screenX)*0.9
+    maxsize=max(picw,pich)
+    if maxsize>minsize:
+        rate=minsize/maxsize
+        return (round(picw*rate),round(pich*rate))
+    else:
+        return (picw,pich)
+
 
 
 def cvThread(hack):
     print("cvThread启动")
+    scrw,scrh=autosize(screenX,screenY,width,height)
     global dll
     global drawNum
     dll.init(hack, width, height)
     lastTime = time.time()
-    cv2.namedWindow("1", flags=cv2.WINDOW_FREERATIO)
+    print(screenX,screenY)
+    cv2.namedWindow("1", flags=cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)
+    cv2.resizeWindow("1", scrw, scrh)
+
     tick = 0
     bufflen = height * width * 3
     global FPS
