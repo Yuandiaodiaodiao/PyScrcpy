@@ -19,9 +19,9 @@ import java.util.Objects;
 import okio.ByteString;
 
 public class ScreenRecorder {
-    private static final int DEFAULT_FRAME_RATE = 30; // fps
+    private static final int DEFAULT_FRAME_RATE = 60; // fps
     private static final int DEFAULT_I_FRAME_INTERVAL = 1; // seconds
-    private static final int DEFAULT_BIT_RATE = (int) 50e6; // 8Mbps
+    private static final int DEFAULT_BIT_RATE = (int) 400e6; // 8Mbps
     private static final int DEFAULT_TIME_OUT = 10 * 1000; // 2s
 
     private static final int REPEAT_FRAME_DELAY = 6; // repeat after 6 frames

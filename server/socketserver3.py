@@ -35,7 +35,7 @@ class MysocketServer():
                 try:
                     # conn.send(b"aaaa")
 
-                    data = conn.recv(8192)  # 接收数据
+                    data = conn.recv(1000000)  # 接收数据
                     # print(f"socket receive={len(data)}")
                     dataLen = len(data)
                     if len(data) > 0:

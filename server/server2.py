@@ -167,9 +167,9 @@ def cvThread(hack):
             tick += 1
             timebuff = time.time()
             buffLen = dll.getBuff(buff)
-            print("取出")
+            # print("取出")
             timebuffused = time.time() - timebuff
-            print(f"解码耗时={round(timebuffused * 1000, 1)}ms")
+            # print(f"解码耗时={round(timebuffused * 1000, 1)}ms")
             # if timebuffused>0:
             #     FPS-=1
             #     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
@@ -188,7 +188,7 @@ def cvThread(hack):
             #     print(frame[i],end=" ")
             # print('end!!!!!!!')
             lenx = len(frame)
-            print(f"len={lenx}")
+            # print(f"len={lenx}")
 
             # if lenx != bufflen:
             #     continue

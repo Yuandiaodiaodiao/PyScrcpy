@@ -42,7 +42,7 @@ class Decoder {
     BlockingQueue<buffWithSize> inputQueue;
     BlockingQueue<buffWithSize> outputQueue;
     buffWithSize haventReadFinish;
-    const static size_t BUF_SIZE = 65535;
+    const static size_t BUF_SIZE = (int)1e6;
     uint8_t *bufferx;
     int width, height;
 
