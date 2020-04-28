@@ -159,14 +159,12 @@ public class ScreenRecorder {
 //                        writeFrameMeta(fd, bufferInfo, codecBuffer.remaining());
 //                    }
 //                    System.out.println(bufferInfo.flags);
-//                    if (true) {
-                        WebSocketController.Write(codecBuffer);
-//                    } else {
+//                        WebSocketController.Write(codecBuffer);
 //                        ByteString bs = ByteString.of(codecBuffer);
 //                        byte[] ba = bs.toByteArray();
-//                        System.out.println("图片大小=" + ba.length);
-//                        SocketManager.getOs().write(ba);
-//                        SocketManager.getOs().flush();
+//                        System.out.println("图片大小1=" + ba.length);
+                        SocketManager.getOs().write(ByteString.of(codecBuffer).toByteArray());
+                        SocketManager.getOs().flush();
 //                    }
 //                    System.out.println("before flush");
 //                    Long t3 = System.currentTimeMillis();

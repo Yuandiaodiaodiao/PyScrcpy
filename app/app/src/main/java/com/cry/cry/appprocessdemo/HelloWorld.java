@@ -54,19 +54,14 @@ public class HelloWorld {
         if (!screenOn) {    //点亮屏幕
             clickPowerKey(serviceManager);
         }
-        CountDownLatch countDownLatch = new CountDownLatch(1);//创建锁
-        WebSocketController.Connect(WS_URL, countDownLatch);
-        try {
-            countDownLatch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-//        if (true) {
-//
-//        } else {
-//            SocketManager.Connect(SERVER_IP, SERVER_PORT);
+//        CountDownLatch countDownLatch = new CountDownLatch(1);//创建锁
+//        WebSocketController.Connect(WS_URL, countDownLatch);
+//        try {
+//            countDownLatch.await();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
 //        }
+            SocketManager.Connect(SERVER_IP, SERVER_PORT);
 
 
 //        模拟点击
@@ -78,8 +73,7 @@ public class HelloWorld {
         try {
 //            serverSocket = new LocalServerSocket("recorder");
 //            LocalSocket accept = serverSocket.accept();
-            Log.d("zzx", "连接成功！！");
-            System.out.println("连接成功！！");
+
 
 //            final FileDescriptor fileDescriptor = accept.getFileDescriptor();
             FileDescriptor fileDescriptor = null;

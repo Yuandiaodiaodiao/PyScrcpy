@@ -113,16 +113,17 @@ class Application(tornado.web.Application):
 
 dll = ctypes.CDLL('lib/server3.dll')
 
-# height=1280
-# width=720
+height=1280
+width=720
 
-height = 2216
-width = 1080
-FPS = 80
+# height = 2216
+# width = 1080
+FPS = 11
 SHAPE = 444
 shapeA = height * 3 // 2
 shapeB = width
 
+import matplotlib.pyplot as plt
 
 def cvThread(hack):
     print("cvThread启动")
@@ -143,9 +144,9 @@ def cvThread(hack):
             tick += 1
             timebuff = time.time()
             buffLen = dll.getBuff(buff)
+            print("取出")
             timebuffused = time.time() - timebuff
-            if show > 0.99:
-                print(f"解码耗时={round(timebuffused * 1000, 1)}")
+            print(f"解码耗时={round(timebuffused * 1000, 1)}ms")
             # if timebuffused>0:
             #     FPS-=1
             #     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
@@ -158,15 +159,20 @@ def cvThread(hack):
             #     # time.sleep(1/FPS - lastUse)
             # lastTime = time.time()
             frame = np.frombuffer(buff.value, 'uint8')
-            if len(frame) < bufflen:
+            lenx=len(frame)
+            print(f"len={lenx}")
+
+            if lenx != bufflen:
                 continue
             solveQps()
             img = frame.reshape((shapeA, shapeB)).astype('uint8')
-            bgr_img = cv2.cvtColor(img, cv2.COLOR_YUV420p2RGB)
+            rgb_img = cv2.cvtColor(img, cv2.COLOR_YUV420p2RGB)
             cvTime = time.time()
 
-            cv2.imshow("1", bgr_img)
+            cv2.imshow("1", rgb_img)
             cv2.waitKey(1)
+            # plt.imshow(rgb_img)
+            # plt.show()
             cvTimeUsed = time.time() - cvTime
             # if show>0.99:
             # print(f"open cv time={round(cvTimeUsed * 1000, 1)}ms")
@@ -205,17 +211,21 @@ def mainx():
         # cvT.join()
         # t.join()
     else:
-        cvT = threading.Thread(target=cvThread, args=(0,))
-        cvT.start()
-        # if True:
-        app = Application()
-        app.listen(20482)
-        tornado.ioloop.IOLoop.current().start()
-    cvT.join()
+        # cvT = threading.Thread(target=cvThread, args=(0,))
+        # cvT.start()
+        # app = Application()
+        # app.listen(20482)
+        # tornado.ioloop.IOLoop.current().start()
+        from socketserver3 import MysocketServer
+        server = MysocketServer("", 20481, dll)
+        server.start()
+        print("cvThread函数")
+        cvThread(0)
+        server.join()
+    # cvT.join()
     dll.wait()
     # else:
-    # from socketserver3 import MysocketServer
-    # server = MysocketServer("", 20481, dll)
+
 
 
 
@@ -223,14 +233,12 @@ def mainx():
 if __name__ == "__main__":
 
     if hack == 0:
-        mul = multiprocessing.Process(target=mainx)
-        mul.start()
+
         import buildAndroid2
 
         mul2 = multiprocessing.Process(target=buildAndroid2.mainx)
         mul2.start()
-        mul2.join()
 
-        mul.join()
+        mainx()
     else:
         mainx()

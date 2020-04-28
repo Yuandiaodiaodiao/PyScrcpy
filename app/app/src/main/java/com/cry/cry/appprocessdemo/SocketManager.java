@@ -12,21 +12,21 @@ public class SocketManager {
     private static InputStream is;
 
     public static void Connect(String ipi, Integer porti) {
-//        try {
-//            socket = new Socket(ipi, porti);
-//            System.out.println("socket 连接成功");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//
-//            os = socket.getOutputStream();
-//
-//
-//            System.out.println("socket OutputStream创建成功");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            socket = new Socket(ipi, porti);
+            System.out.println("socket 连接成功");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+
+            os = socket.getOutputStream();
+
+
+            System.out.println("socket OutputStream创建成功");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
