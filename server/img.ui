@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>2000</width>
-    <height>2000</height>
+    <height>2300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,7 +32,7 @@
      <x>10</x>
      <y>50</y>
      <width>1800</width>
-     <height>1800</height>
+     <height>2220</height>
     </rect>
    </property>
    <property name="layoutDirection">

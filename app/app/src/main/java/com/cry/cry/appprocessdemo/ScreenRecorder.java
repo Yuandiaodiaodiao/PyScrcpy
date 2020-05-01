@@ -125,7 +125,6 @@ public class ScreenRecorder {
 
         mediaFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface);
         mediaFormat.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, iFrameInterval);
-//        mediaFormat.setLong(MediaFormat.KEY_REPEAT_PREVIOUS_FRAME_AFTER, MICROSECONDS_IN_ONE_SECOND * REPEAT_FRAME_DELAY / frameRate);//us 200ms 没有新帧重复帧出包
         mediaFormat.setLong(MediaFormat.KEY_REPEAT_PREVIOUS_FRAME_AFTER, 400_000);//us 100ms 没有新帧重复帧出包
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             System.out.println("安卓10 设置帧率=" + frameRate);

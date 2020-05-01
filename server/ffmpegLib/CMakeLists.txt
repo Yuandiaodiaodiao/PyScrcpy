@@ -32,8 +32,8 @@ SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../lib)
 add_executable(memcpytest memcpytest.cpp)
 
 
-add_library(server3 SHARED server.cpp)
-target_link_libraries(server3 avformat avutil avcodec avdevice avfilter swscale)
+add_library(server7 SHARED server.cpp)
+target_link_libraries(server7 avformat avutil avcodec avdevice avfilter swscale)
 add_executable(server4 server.cpp)
 target_link_libraries(server4 avformat avutil avcodec avdevice avfilter swscale)
 

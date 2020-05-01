@@ -2,12 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f4462f0-1e81-4cf8-bbd7-46ca94c1120f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pillowrgb.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qtvideo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/androidTest/java/com/yuandiaodiaodiao/pyscrcpy/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ScreenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/WebSocketController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/test/java/com/yuandiaodiaodiao/pyscrcpy/ExampleUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebsocketServer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mulprocessTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/windowSize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/HelloWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/ScreenRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/ScreenRecorder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/SocketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/SocketManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rgb24.py" beforeDir="false" afterPath="$PROJECT_DIR$/rgb24.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/Decoder.h" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/Decoder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img.ui" beforeDir="false" afterPath="$PROJECT_DIR$/img.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server3.dll.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server3.exp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server3.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/server3.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qtvideo.py" beforeDir="false" afterPath="$PROJECT_DIR$/qtvideo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server2.py" beforeDir="false" afterPath="$PROJECT_DIR$/server2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/socketserver3.py" beforeDir="false" afterPath="$PROJECT_DIR$/socketserver3.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +87,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ScreenRecorder" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -56,8 +108,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.qtvideo">
-    <configuration name="pillowrgb" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -70,7 +122,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pillowrgb.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mulprocessTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mulprocessTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -147,10 +221,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.mulprocessTest" />
+        <item itemvalue="Python.server2" />
         <item itemvalue="Python.qtvideo" />
         <item itemvalue="Python.rgb24" />
-        <item itemvalue="Python.pillowrgb" />
-        <item itemvalue="Python.server2" />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +242,13 @@
       <workItem from="1588028093897" duration="5314000" />
       <workItem from="1588041955735" duration="11356000" />
       <workItem from="1588097155434" duration="255000" />
-      <workItem from="1588097895915" duration="4486000" />
+      <workItem from="1588097895915" duration="5973000" />
+      <workItem from="1588251126481" duration="1090000" />
+      <workItem from="1588253416256" duration="13943000" />
+      <workItem from="1588311453417" duration="1764000" />
+      <workItem from="1588313410103" duration="6438000" />
+      <workItem from="1588319942296" duration="4250000" />
+      <workItem from="1588340628126" duration="4145000" />
     </task>
     <servers />
   </component>
@@ -196,36 +277,6 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>207</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>205</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>203</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>201</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>184</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>162</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/rgb24.py</url>
           <line>13</line>
           <option name="timeStamp" value="17" />
@@ -237,32 +288,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>171</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/server2.py</url>
-          <line>148</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/qtvideo.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/qtvideo.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/qtvideo.py</url>
-          <line>36</line>
+          <line>180</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/qtvideo.py</url>
-          <line>39</line>
+          <url>file://$PROJECT_DIR$/server2.py</url>
+          <line>144</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
@@ -274,9 +305,11 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/server$server2.coverage" NAME="server2 Coverage Results" MODIFIED="1588099447984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$rgb24.coverage" NAME="rgb24 Coverage Results" MODIFIED="1588102363124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$server2.coverage" NAME="server2 Coverage Results" MODIFIED="1588262214521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$pillowrgb.coverage" NAME="pillowrgb Coverage Results" MODIFIED="1588100645578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/server$qtvideo.coverage" NAME="qtvideo Coverage Results" MODIFIED="1588102544194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$qtvideo.coverage" NAME="qtvideo Coverage Results" MODIFIED="1588103258965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$mulprocessTest.coverage" NAME="mulprocessTest Coverage Results" MODIFIED="1588262648921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$main.coverage" NAME="main Coverage Results" MODIFIED="1588356400008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -8,6 +8,12 @@ import ctypes
 import threading
 import multiprocessing
 import random
+import sys
+from PyQt5 import QtWidgets
+from PyQt5.QtCore import QThread, pyqtSignal
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.uic import loadUi
+import qtvideo as qv
 
 connect_users = set()
 tickx = 0
@@ -42,7 +48,7 @@ maxNum = 0
 class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     connect_users = set()
 
-    def check_origin(self):
+    def check_origin(self, origin: str):
         '''重写同源检查 解决跨域问题'''
         return True
 
@@ -113,109 +119,98 @@ class Application(tornado.web.Application):
         tornado.web.Application.__init__(self, handlers)
 
 
-dll = ctypes.CDLL('lib/server3.dll')
+dll = ctypes.CDLL('lib/server6.dll')
 
 # height = 1280
 # width = 720
 
-height = 2220
-width = 1080
+# height = 2220
+# width = 1080
 FPS = 11
 SHAPE = 444
-shapeA = height * 3 // 2
-shapeB = width
+
 import cmath
 import matplotlib.pyplot as plt
-import win32api,win32con
+import win32api, win32con
 
-screenX=win32api.GetSystemMetrics(win32con.SM_CXSCREEN)   #获得屏幕分辨率X轴
+screenX = win32api.GetSystemMetrics(win32con.SM_CXSCREEN)  # 获得屏幕分辨率X轴
 
-screenY=win32api.GetSystemMetrics(win32con.SM_CYSCREEN)
+screenY = win32api.GetSystemMetrics(win32con.SM_CYSCREEN)
 
-def autosize(screenY,screenX,picw,pich):
-    minsize=min(screenY,screenX)*0.9
-    maxsize=max(picw,pich)
-    if maxsize>minsize:
-        rate=minsize/maxsize
-        return (round(picw*rate),round(pich*rate))
+
+def autosize(screenY, screenX, picw, pich):
+    minsize = min(screenY, screenX)*0.9
+    maxsize = max(picw, pich)
+    if maxsize > minsize:
+        rate = minsize / maxsize
+        return (int(picw * rate//2*2), int(pich * rate//2*2))
     else:
-        return (picw,pich)
+        return (picw, pich)
 
 
+from qtvideo import mywin
 
-def cvThread(hack):
-    print("cvThread启动")
-    scrw,scrh=autosize(screenX,screenY,width,height)
-    global dll
-    global drawNum
-    dll.init(hack, width, height)
-    lastTime = time.time()
-    print(screenX,screenY)
-    cv2.namedWindow("1", flags=cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)
-    cv2.resizeWindow("1", scrw, scrh)
+from socketserver3 import MysocketServer
 
-    tick = 0
-    bufflen = height * width * 3
-    global FPS
-    buff = ctypes.c_buffer(bufflen)
-    npBuff=np.empty((height*width*3), dtype = 'uint8')
+threadImg = None
 
-    while True:
-        try:
-            drawNum += 1
-            show = random.random()
-            tick += 1
-            timebuff = time.time()
-            buffLen = dll.getBuff(buff)
-            # print("取出")
-            timebuffused = time.time() - timebuff
-            # print(f"解码耗时={round(timebuffused * 1000, 1)}ms")
-            # if timebuffused>0:
-            #     FPS-=1
-            #     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            # if tick%(FPS*2)==0:
-            #     FPS+=1
-            # thistime = time.time()
-            # lastUse = thistime - lastTime
-            # if lastUse < 1/FPS :
-            #     print(f"sleep {1/FPS - lastUse}")
-            #     # time.sleep(1/FPS - lastUse)
-            # lastTime = time.time()
 
-            frame = np.frombuffer(buff.raw, 'uint8',count=height*width*3)
-            # print("start!!!!!!!!!!!!!")
-            # for i in range(100):
-            #     print(frame[i],end=" ")
-            # print('end!!!!!!!')
-            lenx = len(frame)
-            # print(f"len={lenx}")
+class Mythread(QThread):
+    breakSignal = pyqtSignal(int)
 
-            # if lenx != bufflen:
-            #     continue
-            solveQps()
-            # pixels = lenx // 3
-            # # x*x/16*9=1280*720
-            # pixels = pixels // 9 * 16
-            # pixels=cmath.sqrt(pixels).real
-            # x = round(pixels)
-            # y = x // 16 * 9
-            # print(f"RGB {x}:{y}")
-            img = frame.reshape((height, width, 3)).astype('uint8')
-            # rgb_img = cv2.cvtColor(img, cv2.COLOR_YUV420p2RGB)
-            cvTime = time.time()
+    def __init__(self, queue, size):
+        super().__init__()
+        # 下面的初始化方法都可以，有的python版本不支持
+        # super(Mythread, self).__init__()
+        self.queue = queue
+        self.scrSize = size
 
-            cv2.imshow("1", img)
-            cv2.waitKey(1)
-            # plt.imshow(rgb_img)
-            # plt.show()
-            cvTimeUsed = time.time() - cvTime
-            # if show>0.99:
-            # print(f"open cv time={round(cvTimeUsed * 1000, 1)}ms")
+    def run(self):
+        global dll
+        # 启动socket通信
+        while True:
+            size = self.queue.get()
+            if size.get("size"):
+                size = size.get("size")
+                break
+            else:
+                self.queue.put(size)
 
-            # print(f"wsNum={websocketPackageNum} drawNum={drawNum}")
-        except Exception as e:
-            print(e)
-            pass
+        print("ImageThread启动")
+        w, h = size
+        print(f"拿到了w={w}h={h}")
+        scrw, scrh = autosize(self.scrSize[0], self.scrSize[1], w, h)
+        print(f"自适应分辨率{scrw}x{scrh}")
+        # scrw,scrh=w,h
+        global drawNum
+        global threadImg
+        dll.init(0, w, h, scrw, scrh)
+        lastTime = time.time()
+        print(screenX, screenY)
+        # cv2.namedWindow("1", flags=cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)
+        # cv2.resizeWindow("1", scrw, scrh)
+
+        tick = 0
+        bufflen = scrw * scrh * 3
+        global FPS
+        buff = ctypes.c_buffer(bufflen)
+
+        while True:
+            try:
+                drawNum += 1
+                tick += 1
+                buffLen = dll.getBuff(buff)
+                frame = np.frombuffer(buff.raw, 'uint8', count=bufflen)
+                lenx = len(frame)
+                solveQps()
+                img = frame.reshape((scrh, scrw, 3)).astype('uint8')
+                qv.imageT = img
+                self.breakSignal.emit(1)
+
+
+            except Exception as e:
+                print(e)
+                pass
 
 
 def hackSocket():
@@ -236,13 +231,11 @@ hack = 0
 
 def mainx():
     if hack == 2:
-        cvThread(1)
-
+        pass
     elif hack == 1:
 
         t = threading.Thread(target=hackSocket)
         t.start()
-        cvThread(0)
         # cvT.join()
         # t.join()
     else:
@@ -254,8 +247,21 @@ def mainx():
         from socketserver3 import MysocketServer
         server = MysocketServer("", 20481, dll)
         server.start()
-        print("cvThread函数")
-        cvThread(0)
+
+        app = QtWidgets.QApplication(sys.argv)
+        window = mywin()
+        threadx = Mythread()
+        threadx.breakSignal.connect(window.loadimage)
+        threadx.start()
+
+        window.show()
+
+        # window.setGeometry(100,100,400,300)
+        sys.exit(app.exec_())
+        #
+        #
+        # print("cvThread函数")
+        # cvThread(0)
         server.join()
     # cvT.join()
     dll.wait()

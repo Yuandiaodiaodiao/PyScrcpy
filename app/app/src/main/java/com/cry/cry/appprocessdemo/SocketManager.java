@@ -3,6 +3,7 @@ package com.cry.cry.appprocessdemo;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.ConnectException;
 import java.net.Socket;
 
 public class SocketManager {
@@ -16,7 +17,13 @@ public class SocketManager {
             socket = new Socket(ipi, porti);
             System.out.println("socket 连接成功");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("失败 重连");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+            }
+            Connect(ipi,porti);
+            return;
         }
         try {
 

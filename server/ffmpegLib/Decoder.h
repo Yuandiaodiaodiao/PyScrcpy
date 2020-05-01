@@ -45,8 +45,8 @@ class Decoder {
     const static size_t BUF_SIZE = (int)1e6;
     uint8_t *bufferx;
     int width, height;
-
-    const static AVPixelFormat RGB_Fmt = AV_PIX_FMT_BGR24;
+    int outputw,outputh;
+    const static AVPixelFormat RGB_Fmt = AV_PIX_FMT_RGB24;
     Decoder() : haventReadFinish( buffWithSize{nullptr, 0, 0} ) {
         avformat_network_init();
         format_ctx = avformat_alloc_context();
@@ -57,7 +57,9 @@ class Decoder {
         codec_ctx->pix_fmt=ap;
         codec_ctx->sw_pix_fmt=ap;
     }
-    void init( bool hack, int widthx, int heightx ) {
+    void init( bool hack, int widthx, int heightx,int outputwi,int outputhi ) {
+        outputw=outputwi;
+        outputh=outputhi;
         //会预读取然后阻塞
         width = widthx;
         height = heightx;
@@ -77,22 +79,22 @@ class Decoder {
         printf( "decoder w = %d ,h =%d \n", codec_ctx->width, codec_ctx->height );
         AVFrame *decode_frame = av_frame_alloc();
         AVFrame *RGB_frame = av_frame_alloc();
-        RGB_frame->height = height;
-        RGB_frame->width = width;
+        RGB_frame->height = outputh;
+        RGB_frame->width = outputw;
         RGB_frame->format = RGB_Fmt;
         uint8_t *m_rgbBuffer;
         int numBytes;
-        numBytes = av_image_get_buffer_size( RGB_Fmt, width, height, 1 );
+        numBytes = av_image_get_buffer_size( RGB_Fmt, outputw, outputh, 1 );
         cout << "RGB图片大小=" << numBytes << endl;
         m_rgbBuffer = (uint8_t *) av_malloc( numBytes * sizeof( uint8_t ) );
         int rest = av_image_fill_arrays( RGB_frame->data, RGB_frame->linesize, m_rgbBuffer, RGB_Fmt,
-                                         width, height, 1 );
+                                         outputw, outputh, 1 );
         struct SwsContext *m_img_convert_ctx;
 
         //特别注意sws_getContext内存泄露问题，
         //注意sws_getContext只能调用一次，在初始化时候调用即可，另外调用完后，在析构函数中使用sws_freeContext，将它的内存释放。
         //设置图像转换上下文
-        m_img_convert_ctx = sws_getContext( width, height, ap, width, height, RGB_Fmt, SWS_BICUBIC,
+        m_img_convert_ctx = sws_getContext( width, height, ap, outputw, outputh, RGB_Fmt, SWS_BICUBIC,
                                             NULL, NULL, NULL );
         int isinit = 0;
         while ( av_read_frame( format_ctx, packet ) >= 0 ) {
@@ -117,12 +119,12 @@ class Decoder {
                 isinit = 1;
                 int codedW = codec_ctx->coded_width, codedH = codec_ctx->coded_height;
 
-                cout << "初始化图片大小= " << numBytes << " linesize= " << decode_frame->linesize[0]
-                     << endl;
-                cout << "解码width= " << codedW << " 解码heitht= " << codedH
-                     << endl;
-                cout << "预设width= " << decode_frame->width
-                     << " 预设heitht= " << decode_frame->height << endl;
+//                cout << "初始化图片大小= " << numBytes << " linesize= " << decode_frame->linesize[0]
+//                     << endl;
+//                cout << "解码width= " << codedW << " 解码heitht= " << codedH
+//                     << endl;
+//                cout << "预设width= " << decode_frame->width
+//                     << " 预设heitht= " << decode_frame->height << endl;
             }
 
             //转换+裁剪
@@ -130,10 +132,10 @@ class Decoder {
                        decode_frame->linesize, 0, height, RGB_frame->data, RGB_frame->linesize );
             buffWithSize buff2 = {new uint8_t[numBytes], numBytes, 0};
 
-            for ( int i = 0; i < height; i++ ) {
+            for ( int i = 0; i < outputh; i++ ) {
                 memcpy( buff2.buffer + buff2.readIndex, m_rgbBuffer + i * RGB_frame->linesize[0],
-                        width * 3 );
-                buff2.readIndex += width * 3;
+                        outputw * 3 );
+                buff2.readIndex += outputw * 3;
             }
             buff2.size = buff2.readIndex;
 //

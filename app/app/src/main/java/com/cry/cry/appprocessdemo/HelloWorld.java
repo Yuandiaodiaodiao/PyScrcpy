@@ -24,6 +24,7 @@ import java.io.InterruptedIOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
@@ -54,14 +55,15 @@ public class HelloWorld {
         if (!screenOn) {    //点亮屏幕
             clickPowerKey(serviceManager);
         }
-//        CountDownLatch countDownLatch = new CountDownLatch(1);//创建锁
-//        WebSocketController.Connect(WS_URL, countDownLatch);
-//        try {
-//            countDownLatch.await();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-            SocketManager.Connect(SERVER_IP, SERVER_PORT);
+        CountDownLatch countDownLatch = new CountDownLatch(1);//创建锁
+        WebSocketController.Connect(WS_URL, countDownLatch);
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        SocketManager.Connect(SERVER_IP, SERVER_PORT);
 
 
 //        模拟点击
@@ -77,7 +79,8 @@ public class HelloWorld {
 
 //            final FileDescriptor fileDescriptor = accept.getFileDescriptor();
             FileDescriptor fileDescriptor = null;
-            sendScreenInfo(size, buffer, fileDescriptor);
+            int[] sizeArray= sendScreenInfo(size);
+            WebSocketController.getmWebSocket().send("size "+sizeArray[0]+" "+sizeArray[1]);
 
             //连接成功，就开始屏幕录制
             startRd = new StartRd(size, fileDescriptor);
@@ -257,34 +260,13 @@ public class HelloWorld {
         return startRd;
     }
 
-    private static void sendScreenInfo(Size size, ByteBuffer buffer, FileDescriptor fileDescriptor) throws IOException {
+    private static int[] sendScreenInfo(Size size) throws IOException {
         //将尺寸数据先发送过去
         int width = size.getWidth();
         int height = size.getHeight();
-        byte wHigh = (byte) (width >> 8);
-        byte wLow = (byte) (width & 0xff);
 
-        byte hHigh = (byte) (height >> 8);
-        byte hLow = (byte) (height & 0xff);
-
-        buffer.put(wHigh);
-        buffer.put(wLow);
-
-        buffer.put(hHigh);
-        buffer.put(hLow);
-
-//            System.out.println("发送尺寸 size result = " + write);
-//            int write = Os.write(fileDescriptor, buffer);
-        byte[] buffer_size = new byte[4];
-        buffer_size[0] = (byte) (width >> 8);
-        buffer_size[1] = (byte) (width & 0xff);
-        buffer_size[2] = (byte) (height >> 8);
-        buffer_size[3] = (byte) (height & 0xff);
-//        WebSocketController.Write(buffer_size);
         System.out.println("width" + width + "height" + height);
-//        writeFully(fileDescriptor, buffer_size, 0, buffer_size.length);
-        System.out.println("发送尺寸 size result ");
-        buffer.clear();
+        return new int[]{width, height};
     }
 
     private static boolean injectKeyEvent(ServiceManager serviceManager, int action, int keyCode) {

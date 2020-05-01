@@ -14,7 +14,7 @@ using std::cout, std::cin, std::endl, std::thread;
 extern "C" {
 __declspec( dllexport ) int getBuff( uint8_t *buffer );
 __declspec( dllexport ) bool inputBuff( uint8_t *buffer, int size );
-__declspec( dllexport ) void init( int hack, int width, int height );
+__declspec( dllexport ) void init( int hack, int width, int height,int outputw,int outputh );
 __declspec( dllexport ) void wait();
 }
 int id = 0;
@@ -45,14 +45,14 @@ bool inputBuff( uint8_t *buffer, int size ) {
 
     return true;
 }
-void DecoderThread( Decoder &d, int hack, int width, int height ) {
+void DecoderThread( Decoder &d, int hack, int width, int height,int outputw,int outputh) {
 
     cout << 1 << endl;
     if ( hack == 1 ) {
         cout << "hack模式启动" << endl;
     }
     try {
-        d.init( hack, width, height );
+        d.init( hack, width, height,outputw,outputh );
         d.run();
     } catch ( ... ) {
         cout << "error 重启Decoder" << endl;
@@ -65,11 +65,11 @@ void DecoderThread( Decoder &d, int hack, int width, int height ) {
 }
 std::unique_ptr<thread> threads;
 // thread* threadx;
-void init( int hack, int width, int height ) {
+void init( int hack, int width, int height,int outputw,int outputh ) {
     char buffer[500];
     getcwd( buffer, 500 );
     cout << "工作路径" << buffer << endl;
-    threads = std::make_unique<thread>( DecoderThread, std::ref( decoder ), hack, width, height );
+    threads = std::make_unique<thread>( DecoderThread, std::ref( decoder ), hack, width, height,outputw,outputh );
     // threadx=new thread(DecoderThread,std::ref(decoder));
 }
 void wait() {
@@ -77,7 +77,7 @@ void wait() {
 }
 int main() {
     system( "chcp 65001" );
-    init( 1, 360, 640 );
+    init( 1, 360, 640,360,640 );
     //    Decoder d = Decoder();
     wait();
     return 0;

@@ -1,48 +1,69 @@
 import sys
 import numpy as np
 from PyQt5 import QtWidgets
-from PyQt5.QtGui import QImage,QPixmap
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtWidgets import QDialog, QPushButton, QWidget, QHBoxLayout, QApplication, QLabel, QVBoxLayout, QGridLayout
 from PyQt5.uic import loadUi
 import cv2
+
+imageT = None
+import windowSize
+
+
 class mywin(QtWidgets.QDialog):
     def __init__(self):
-        super(mywin,self).__init__()
-        loadUi('img.ui',self)
-        self.load_btn.clicked.connect(self.loadclicked)
+        super(mywin, self).__init__()
+        # loadUi('img.ui',self)
+        self.desktop = QApplication.desktop()
+        self.screenRect = self.desktop.screenGeometry()
+        self.height = self.screenRect.height()
+        self.width = self.screenRect.width()
+        self.setWindowTitle("PyScrcpy")
+        print("pc屏幕分辨率为", (self.height, self.width))
+        minAxis = min(self.width, self.height) * 0.9 // 2 * 2
+        minAxis = int(minAxis)
+        self.resize(minAxis * 9 // 16, minAxis)
 
-    def loadclicked(self):
-        self.loadimage()
+        layout = QHBoxLayout()
 
-    # def loadimage(self,path):
-    #     self.image = cv2.imread(path)
-    #     self.showimage()
+        frameLayout = QHBoxLayout()
+        buttonLayout = QVBoxLayout()
+
+        self.all_btn = all_btn = QPushButton()
+        all_btn.setText("一键启动")
+        self.start_btn = start_btn = QPushButton()
+        start_btn.setText("启动server")
+        self.androit_btn = androit_btn = QPushButton()
+        androit_btn.setText("启动android")
+
+        # self.load_btn.clicked.connect(self.loadimage)
+        # self.
+        buttonLayout.addWidget(all_btn)
+        buttonLayout.addWidget(start_btn)
+        buttonLayout.addWidget(androit_btn)
+        buttonLayout.addStretch()
+
+        self.img_label = QLabel()
+        # self.img_label.setMinimumWidth(720)
+        frameLayout.addWidget(self.img_label)
+        layout.addLayout(buttonLayout)
+        layout.addLayout(frameLayout)
+        self.setLayout(layout)
+        # self.setLayout(wLayout)
 
     def loadimage(self):
-        height = 640
-        width = 360
-        with open(f'bitmap.bm', 'rb') as f:
-            s = f.read()
-            image = np.frombuffer(s, 'uint8')
-
-        print("读取完成")
-        npBuff = np.empty((height * width * 3,), dtype='uint8')
-        # data[0]=data[0][:height*width]
-        # data[1]=data[1][:height*width//4]
-        # data[2]=data[2][:height*width//4]
-        # for index,item in enumerate(data[0]):
-        #     data[0][index]=1
-        image = image.reshape((640, 360, 3)).astype('uint8')
-
-        image=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
-        self.qimg = QImage(image.data, image.shape[1], image.shape[0], QImage.Format_RGB888)
-
+        global imageT
+        # image = cv2.cvtColor(imageT, cv2.COLOR_BGR2RGB)
+        self.qimg = QImage(imageT.data, imageT.shape[1], imageT.shape[0], QImage.Format_RGB888)
+        # QPixmap.loadFromData()
         # self.qimg = self.qimg.rgbSwapped()
         self.img_label.setPixmap(QPixmap.fromImage(self.qimg))
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = mywin()
     window.show()
     window.setWindowTitle("window")
-    #window.setGeometry(100,100,400,300)
+    # window.setGeometry(100,100,400,300)
     sys.exit(app.exec_())
