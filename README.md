@@ -10,7 +10,7 @@ PyScrcpy无线延迟100-300ms
 
 ## LICENSE
 ```
-Copyright (C) 2018 Genymobile
+   Copyright (C) 2018 Genymobile
    Copyright (C) 2020 yuandiaodiaodiao
 
    Licensed under the Apache License, Version 2.0 (the "License");
