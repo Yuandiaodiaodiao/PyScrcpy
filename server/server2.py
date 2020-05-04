@@ -119,7 +119,7 @@ class Application(tornado.web.Application):
         tornado.web.Application.__init__(self, handlers)
 
 
-dll = ctypes.CDLL('lib/server6.dll')
+dll = ctypes.CDLL('lib/server8.dll')
 
 # height = 1280
 # width = 720

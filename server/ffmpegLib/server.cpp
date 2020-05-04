@@ -51,9 +51,15 @@ void DecoderThread( Decoder &d, int hack, int width, int height,int outputw,int 
     if ( hack == 1 ) {
         cout << "hack模式启动" << endl;
     }
+
     try {
         d.init( hack, width, height,outputw,outputh );
-        d.run();
+        while(true){
+            try{
+                d.run();
+            }catch (...){
+            }
+        }
     } catch ( ... ) {
         cout << "error 重启Decoder" << endl;
     }

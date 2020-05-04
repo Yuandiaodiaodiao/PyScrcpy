@@ -163,6 +163,7 @@ class Decoder {
         }
         sws_freeContext( m_img_convert_ctx );
         av_frame_free( &decode_frame );
+        av_frame_free( &RGB_frame );
         cout << "endwhile" << endl;
     }
 

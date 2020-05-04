@@ -2,65 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f4462f0-1e81-4cf8-bbd7-46ca94c1120f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../app2/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/androidTest/java/com/yuandiaodiaodiao/pyscrcpy/ExampleInstrumentedTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ScreenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/WebSocketController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/test/java/com/yuandiaodiaodiao/pyscrcpy/ExampleUnitTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebsocketServer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mulprocessTest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/windowSize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/HelloWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/ScreenRecorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/ScreenRecorder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/SocketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/app/src/main/java/com/cry/cry/appprocessdemo/SocketManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ByteBuffPackage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/SocketManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/SocketThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/xml/network.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebsocketAudioServer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/audioTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qrGen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app2/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ScreenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ScreenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/WebSocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/WebSocketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebsocketServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/WebsocketServer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ffmpegLib/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ffmpegLib/Decoder.h" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/Decoder.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ffmpegLib/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img.ui" beforeDir="false" afterPath="$PROJECT_DIR$/img.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server3.dll.manifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server3.exp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server3.lib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/server3.pdb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qtvideo.py" beforeDir="false" afterPath="$PROJECT_DIR$/qtvideo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server2.py" beforeDir="false" afterPath="$PROJECT_DIR$/server2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socketserver3.py" beforeDir="false" afterPath="$PROJECT_DIR$/socketserver3.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +51,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ScreenRecorder" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -95,6 +59,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Github\PyScrcpy\server" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -109,6 +78,50 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="WebsocketAudioServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WebsocketAudioServer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="audioTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/audioTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,7 +144,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mulprocessTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="qrGen" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -144,7 +157,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mulprocessTest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/qrGen.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,7 +166,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="qtvideo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="util" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -166,51 +179,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/qtvideo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="rgb24" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rgb24.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="server2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/util.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -222,10 +191,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.mulprocessTest" />
-        <item itemvalue="Python.server2" />
-        <item itemvalue="Python.qtvideo" />
-        <item itemvalue="Python.rgb24" />
+        <item itemvalue="Python.WebsocketAudioServer" />
+        <item itemvalue="Python.audioTest" />
+        <item itemvalue="Python.qrGen" />
+        <item itemvalue="Python.util" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +217,10 @@
       <workItem from="1588311453417" duration="1764000" />
       <workItem from="1588313410103" duration="6438000" />
       <workItem from="1588319942296" duration="4250000" />
-      <workItem from="1588340628126" duration="4145000" />
+      <workItem from="1588340628126" duration="5149000" />
+      <workItem from="1588497762062" duration="1536000" />
+      <workItem from="1588517634832" duration="7867000" />
+      <workItem from="1588609112949" duration="6187000" />
     </task>
     <servers />
   </component>
@@ -296,20 +268,57 @@
           <line>144</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/qrGen.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/qtvideo.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/qrGen.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/qrGen.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/audioTest.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/audioTest.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="qimg" language="Python" />
+        <watch expression="image" />
+        <watch expression="imageT" language="Python" />
+        <watch expression="p.get_format_from_width(wf.getsampwidth())" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/server$util.coverage" NAME="util Coverage Results" MODIFIED="1588520326069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$rgb24.coverage" NAME="rgb24 Coverage Results" MODIFIED="1588102363124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$server2.coverage" NAME="server2 Coverage Results" MODIFIED="1588262214521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$pillowrgb.coverage" NAME="pillowrgb Coverage Results" MODIFIED="1588100645578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$qtvideo.coverage" NAME="qtvideo Coverage Results" MODIFIED="1588103258965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$mulprocessTest.coverage" NAME="mulprocessTest Coverage Results" MODIFIED="1588262648921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/server$main.coverage" NAME="main Coverage Results" MODIFIED="1588356400008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$audioTest.coverage" NAME="audioTest Coverage Results" MODIFIED="1588615563398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$qrGen.coverage" NAME="qrGen Coverage Results" MODIFIED="1588521013337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$WebsocketAudioServer.coverage" NAME="WebsocketAudioServer Coverage Results" MODIFIED="1588616221108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$main.coverage" NAME="main Coverage Results" MODIFIED="1588617623237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

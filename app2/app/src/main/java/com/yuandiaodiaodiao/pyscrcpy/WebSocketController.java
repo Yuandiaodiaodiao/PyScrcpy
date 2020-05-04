@@ -65,7 +65,8 @@ public class WebSocketController {
             @Override
             public void onFailure(WebSocket webSocket, Throwable t, Response response) {
                 super.onFailure(webSocket, t, response);
-                System.out.println("连接失败");
+                System.out.println("连接失败"+response);
+                System.out.println(t);
                 try{
                     Thread.sleep(1000);
                 }catch (Exception e){}

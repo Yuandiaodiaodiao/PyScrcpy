@@ -10,19 +10,13 @@ import threading
 import asyncio
 
 from tornado import httputil
-import pyaudio
-p = pyaudio.PyAudio()
-stream = p.open(format=p.get_format_from_width(2), channels=1,
-                    rate=44100, output=True)
+
 
 class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     connect_users = set()
 
     def __init__(self, application: tornado.web.Application, request: httputil.HTTPServerRequest, **kwargs: Any):
-        self.queue = kwargs["queue"]
-        self.dll = kwargs["dll"]
-        kwargs.pop("queue")
-        kwargs.pop("dll")
+
         super().__init__(application, request, **kwargs)
         self.byteType = type(b"")
 
@@ -37,11 +31,7 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
 
     def solveMessage(self, message):
         print(message)
-        msArray = message.split(" ")
-        if len(msArray) > 1 and msArray[0] == 'size':
-            size = (int(msArray[1]), int(msArray[2]))
-            print(f"设备分辨率为{size}")
-            self.queue.put(dict(size=size))
+
 
     def on_message(self, message):
 
@@ -51,9 +41,9 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
             return
 
         lenmessage = len(message)
-        # self.dll.inputBuff(message, lenmessage)
         global stream
         stream.write(message)
+
     def on_close(self):
         print("WebSocket closed")
         # 关闭连接时将用户从connect_users中移除
@@ -68,10 +58,10 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
 
 
 class Application(tornado.web.Application):
-    def __init__(self, queue, dll):
+    def __init__(self):
 
         handlers = [
-            (r'/ws', MyWebSocketHandler, dict(queue=queue, dll=dll))
+            (r'/ws', MyWebSocketHandler)
         ]
         tornado.web.Application.__init__(self, handlers)
         print("websocket listening")
@@ -79,16 +69,12 @@ class Application(tornado.web.Application):
 
 
 import tornado.platform.asyncio
+import pyaudio
+p = pyaudio.PyAudio()
+stream = p.open(format=p.get_format_from_width(2), channels=1,
+                    rate=44100, output=True)
 
-
-class WebsocketThread(threading.Thread):
-    def __init__(self, queue, dll):
-        super().__init__()
-        self.queue = queue
-        self.dll = dll
-
-    def run(self) -> None:
-        asyncio.set_event_loop_policy(tornado.platform.asyncio.AnyThreadEventLoopPolicy())
-        app = Application(self.queue, self.dll)
-        app.listen(20482)
-        tornado.ioloop.IOLoop.current().start()
+        # asyncio.set_event_loop_policy(tornado.platform.asyncio.AnyThreadEventLoopPolicy())
+app = Application()
+app.listen(20482)
+tornado.ioloop.IOLoop.current().start()

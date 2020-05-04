@@ -35,12 +35,14 @@ class mywin(QtWidgets.QDialog):
         start_btn.setText("启动server")
         self.androit_btn = androit_btn = QPushButton()
         androit_btn.setText("启动android")
-
+        self.qrShow_btn=qrShow_btn=QPushButton()
+        qrShow_btn.setText("显示二维码")
         # self.load_btn.clicked.connect(self.loadimage)
         # self.
         buttonLayout.addWidget(all_btn)
         buttonLayout.addWidget(start_btn)
         buttonLayout.addWidget(androit_btn)
+        buttonLayout.addWidget(qrShow_btn)
         buttonLayout.addStretch()
 
         self.img_label = QLabel()
@@ -54,6 +56,7 @@ class mywin(QtWidgets.QDialog):
     def loadimage(self):
         global imageT
         # image = cv2.cvtColor(imageT, cv2.COLOR_BGR2RGB)
+
         self.qimg = QImage(imageT.data, imageT.shape[1], imageT.shape[0], QImage.Format_RGB888)
         # QPixmap.loadFromData()
         # self.qimg = self.qimg.rgbSwapped()

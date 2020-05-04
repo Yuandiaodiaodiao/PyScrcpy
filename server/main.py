@@ -6,8 +6,8 @@ import multiprocessing
 import server2
 import socketserver3
 import WebsocketServer
-
-
+import util
+import qrGen
 class UiServer(qtvideo.mywin):
 
     def __init__(self, dll):
@@ -18,6 +18,7 @@ class UiServer(qtvideo.mywin):
         self.all_btn.clicked.connect(self.allStart)
         self.start_btn.clicked.connect(self.startServer)
         self.androit_btn.clicked.connect(self.startAndroid)
+        self.qrShow_btn.clicked.connect(self.showQr)
         # socket线程 用于接收图片数据
         self.socketServer = socketserver3.MysocketServer("", 20481, self.dll)
 
@@ -29,7 +30,16 @@ class UiServer(qtvideo.mywin):
         self.androidProcess = mulprocessTest.AndroidStart()
 
         # 消息通知
-        self.wsThread = WebsocketServer.WebsocketThread(self.queue)
+        self.wsThread = WebsocketServer.WebsocketThread(self.queue,self.dll)
+        self.showQr()
+
+        self.startServer()
+
+    def showQr(self):
+        self.ip = util.getIp()
+        qrImg = qrGen.renderQR(self.ip)
+        qtvideo.imageT = qrImg
+        self.loadimage()
 
     def startServer(self):
         self.serverThread.start()
@@ -40,7 +50,7 @@ class UiServer(qtvideo.mywin):
         self.androidProcess.start()
 
     def allStart(self):
-        self.startServer()
+        # self.startServer()
         self.startAndroid()
     def __del__(self):
         print("析构")

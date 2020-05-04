@@ -10,13 +10,17 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
+import android.media.AudioFormat;
+import android.media.AudioRecord;
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;
 import android.media.MediaFormat;
+import android.media.MediaRecorder;
 import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.os.Build;
 import android.os.IBinder;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Surface;
 
@@ -28,10 +32,14 @@ import java.nio.ByteBuffer;
 import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 
+import static android.media.AudioRecord.RECORDSTATE_RECORDING;
+
 public class ScreenService extends Service {
     private static String TAG = "ScreenService";
     private Thread thread;
     private static String WS_URL = "ws://192.168.31.39:20482/ws";
+    private static String SERVER_IP = "192.168.31.39";
+    private static Integer SERVER_PORT = 20481;
 
     @Nullable
     @Override
@@ -40,25 +48,42 @@ public class ScreenService extends Service {
     }
 
     private MediaProjection mp;
+    private Thread audiothread;
 
-
+    @Override
+    public void onDestroy() {
+//        if(thread.isAlive()){
+//            thread.interrupt();
+//        }
+        ar.stop();
+        audiothread.interrupt();
+        mEncoder.stop();
+        stopForeground(true);
+        super.onDestroy();
+    }
 
     public int onStartCommand(final Intent intent, int flags, int startId) {
+        int openCode = intent.getIntExtra("open", -1);
+        if (openCode == 1) {
+            ar.stop();
+            mEncoder.stop();
+            audiothread.interrupt();
+            stopForeground(true);
+
+            return super.onStartCommand(intent, flags, startId);
+        }
         createNotificationChannel();
 
+        DisplayMetrics dm = new DisplayMetrics();
+        dm = getResources().getDisplayMetrics();
+        int screenWidth = dm.widthPixels;
+        int screenHeight = dm.heightPixels;
 
-        CountDownLatch countDownLatch = new CountDownLatch(1);//创建锁
-        WebSocketController.Connect(WS_URL, countDownLatch);
-        try {
-            countDownLatch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        WebSocketController.getmWebSocket().send("size "+720+" "+1080);
+        WebSocketController.getmWebSocket().send("size " + screenWidth + " " + screenHeight);
 
-        Intent it= Objects.requireNonNull((Intent) (intent.getParcelableExtra("data")));
+        Intent it = Objects.requireNonNull((Intent) (intent.getParcelableExtra("data")));
         MediaProjectionManager mediaProjectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
-        mp = mediaProjectionManager.getMediaProjection(intent.getIntExtra("code", -1),it);
+        mp = mediaProjectionManager.getMediaProjection(intent.getIntExtra("code", -1), it);
         Log.e(TAG, "mMediaProjection created: " + mp);
 //        thread=new Thread(
 //                new Runnable() {
@@ -77,7 +102,8 @@ public class ScreenService extends Service {
 //                }
 //        );
 ////        thread.run();
-        createMediaCodec();
+        audioRecord();
+        createMediaCodec(screenWidth, screenHeight);
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -85,26 +111,97 @@ public class ScreenService extends Service {
     private MediaCodec mEncoder;
     private MediaCodec.BufferInfo mBufferInfo;
     private static final String MIME_TYPE = "video/avc";    // H.264 Advanced Video Coding
-    private static final int BIT_RATE = 800000;
-    private static final int FRAME_RATE = 15;
+    private static final int BIT_RATE = (int) 10e6;
+    private static final int FRAME_RATE = 30;
     private static final int IFRAME_INTERVAL = 5;
     private VirtualDisplay vd;
 
-    private void createMediaCodec() {
+    private AudioRecord createAudioRecord() {
+        for (int sampleRate : new int[]{44100}) {
+            for (short audioFormat : new short[]{
+                    AudioFormat.ENCODING_PCM_16BIT
+//                    , AudioFormat.ENCODING_PCM_8BIT
+            }) {
+                for (short channelConfig : new short[]{
+                        AudioFormat.CHANNEL_IN_MONO
+//                        , AudioFormat.CHANNEL_IN_STEREO //立体声
+                }) {
+
+                    // Try to initialize
+                    try {
+                        int recBufSize = AudioRecord.getMinBufferSize(sampleRate,
+                                channelConfig, audioFormat);
+
+                        if (recBufSize < 0) {
+                            continue;
+                        }
+
+                        AudioRecord audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
+                                sampleRate, channelConfig, audioFormat,
+                                recBufSize * 2);
+
+                        if (audioRecord.getState() == AudioRecord.STATE_INITIALIZED) {
+
+                            return audioRecord;
+                        }
+
+                        audioRecord.release();
+                        audioRecord = null;
+                    } catch (Exception e) {
+                        // Do nothing
+                    }
+                }
+            }
+        }
+
+        throw new IllegalStateException(
+                "getInstance() failed : no suitable audio configurations on this device.");
+
+    }
+
+    private AudioRecord ar;
+
+    private void audioRecord() {
+        ar = createAudioRecord();
+        audiothread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                byte[] audiodata = new byte[1000];
+                ar.startRecording();
+                while (ar.getRecordingState() == RECORDSTATE_RECORDING && !Thread.interrupted()) {
+                    int readsize = ar.read(audiodata, 0, 1000);
+                    WebSocketController.Write(audiodata);
+//                    System.out.println("读了" + readsize);
+
+                }
+                ar.release();
+            }
+        });
+        audiothread.start();
+
+    }
+
+    private void createMediaCodec(int width, int height) {
+
         mBufferInfo = new MediaCodec.BufferInfo();
 
-        MediaFormat format = MediaFormat.createVideoFormat(MIME_TYPE, 720, 1280);
+        MediaFormat format = MediaFormat.createVideoFormat(MIME_TYPE, width, height);
         format.setInteger(MediaFormat.KEY_BIT_RATE, BIT_RATE);
         format.setInteger(MediaFormat.KEY_FRAME_RATE, FRAME_RATE);
         format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, IFRAME_INTERVAL);
         format.setLong(MediaFormat.KEY_REPEAT_PREVIOUS_FRAME_AFTER, 400_000);
         format.setInteger(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            System.out.println("安卓10 设置帧率=" + FRAME_RATE);
+            format.setFloat(MediaFormat.KEY_MAX_FPS_TO_ENCODER, FRAME_RATE);
+        }
         try {
             mEncoder = MediaCodec.createEncoderByType(MIME_TYPE);
 //            mEncoder = MediaCodec.createByCodecName("c2.android.avc.encoder");
             mEncoder.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
             mInputSurface = mEncoder.createInputSurface();
-            vd = mp.createVirtualDisplay("display-", 720, 1280, 1, DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, null, null, null);
+            vd = mp.createVirtualDisplay("display-", width, height, 1, DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, null, null, null);
             vd.setSurface(mInputSurface);
             mEncoder.setCallback(new MediaCodec.Callback() {
                 @Override
@@ -119,12 +216,14 @@ public class ScreenService extends Service {
                     try {
                         if (outputBufferId >= 0) {
                             ByteBuffer codecBuffer = codec.getOutputBuffer(outputBufferId);
-                            Log.d(TAG, "输出buff");
+                            SocketManager.WriteBuffer(codec, outputBufferId, codecBuffer);
+//                            WebSocketController.Write(codecBuffer);
+//                            Log.d(TAG, "输出buff");
                         }
                     } finally {
-                        if (outputBufferId >= 0) {
-                            codec.releaseOutputBuffer(outputBufferId, false);
-                        }
+//                        if (outputBufferId >= 0) {
+//                            codec.releaseOutputBuffer(outputBufferId, false);
+//                        }
                     }
                 }
 
