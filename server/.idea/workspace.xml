@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f4462f0-1e81-4cf8-bbd7-46ca94c1120f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ByteBuffPackage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/SocketManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/SocketThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../app2/app/src/main/res/xml/network.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebsocketAudioServer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/audioTest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qrGen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app2/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ScreenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ScreenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/WebSocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/WebSocketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebsocketServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/WebsocketServer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/Decoder.h" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/Decoder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ffmpegLib/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qtvideo.py" beforeDir="false" afterPath="$PROJECT_DIR$/qtvideo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server2.py" beforeDir="false" afterPath="$PROJECT_DIR$/server2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +198,7 @@
       <workItem from="1588340628126" duration="5149000" />
       <workItem from="1588497762062" duration="1536000" />
       <workItem from="1588517634832" duration="7867000" />
-      <workItem from="1588609112949" duration="6187000" />
+      <workItem from="1588609112949" duration="7340000" />
     </task>
     <servers />
   </component>
@@ -319,6 +297,6 @@
     <SUITE FILE_PATH="coverage/server$audioTest.coverage" NAME="audioTest Coverage Results" MODIFIED="1588615563398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$qrGen.coverage" NAME="qrGen Coverage Results" MODIFIED="1588521013337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$WebsocketAudioServer.coverage" NAME="WebsocketAudioServer Coverage Results" MODIFIED="1588616221108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/server$main.coverage" NAME="main Coverage Results" MODIFIED="1588617623237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$main.coverage" NAME="main Coverage Results" MODIFIED="1588618382941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
