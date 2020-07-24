@@ -2,9 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f4462f0-1e81-4cf8-bbd7-46ca94c1120f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ScreenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app2/app/src/main/java/com/yuandiaodiaodiao/pyscrcpy/ScreenService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/Decoder.h" beforeDir="false" afterPath="$PROJECT_DIR$/ffmpegLib/Decoder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/EventCache.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/EventCache.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/EventController.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/EventController.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/FFmpegDecoder.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/FFmpegDecoder.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/FrameCache.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/FrameCache.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/SDL_Screen.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/SDL_Screen.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/SocketConnection.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/SocketConnection.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ffmpegLib/main.cpp" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +37,13 @@
   </component>
   <component name="ProjectId" id="1b8ybtWu3TigNWTjZgpoHc90LAr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -42,18 +63,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Github\PyScrcpy\server" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="WebsocketAudioServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -199,25 +208,54 @@
       <workItem from="1588497762062" duration="1536000" />
       <workItem from="1588517634832" duration="7867000" />
       <workItem from="1588609112949" duration="7340000" />
-      <workItem from="1588661903971" duration="2046000" />
+      <workItem from="1588661903971" duration="2697000" />
+      <workItem from="1588743323811" duration="1206000" />
+      <workItem from="1589249270590" duration="712000" />
+      <workItem from="1589250210882" duration="846000" />
+      <workItem from="1590296644523" duration="9000" />
+      <workItem from="1592040844814" duration="737000" />
+      <workItem from="1592202057522" duration="10000" />
+      <workItem from="1592661967423" duration="1969000" />
+      <workItem from="1592676582504" duration="599000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1557" height="334" key="GridCell.Tab.0.bottom" timestamp="1589261879641">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="334" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589261879641" />
+    <state width="1557" height="334" key="GridCell.Tab.0.center" timestamp="1589261879641">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="334" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1589261879641" />
+    <state width="1557" height="334" key="GridCell.Tab.0.left" timestamp="1589261879641">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="334" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1589261879641" />
+    <state width="1557" height="334" key="GridCell.Tab.0.right" timestamp="1589261879641">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="334" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1589261879641" />
+    <state x="501" y="28" width="598" height="804" key="find.popup" timestamp="1589250437365">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="501" y="28" width="598" height="804" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1589250437365" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -289,15 +327,15 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/server$util.coverage" NAME="util Coverage Results" MODIFIED="1588520326069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/server$rgb24.coverage" NAME="rgb24 Coverage Results" MODIFIED="1588102363124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$server2.coverage" NAME="server2 Coverage Results" MODIFIED="1588262214521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$pillowrgb.coverage" NAME="pillowrgb Coverage Results" MODIFIED="1588100645578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$util.coverage" NAME="util Coverage Results" MODIFIED="1588520326069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$qtvideo.coverage" NAME="qtvideo Coverage Results" MODIFIED="1588103258965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$main.coverage" NAME="main Coverage Results" MODIFIED="1589250218304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$mulprocessTest.coverage" NAME="mulprocessTest Coverage Results" MODIFIED="1588262648921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$audioTest.coverage" NAME="audioTest Coverage Results" MODIFIED="1588615563398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/server$qrGen.coverage" NAME="qrGen Coverage Results" MODIFIED="1588521013337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/server$WebsocketAudioServer.coverage" NAME="WebsocketAudioServer Coverage Results" MODIFIED="1588616221108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/server$main.coverage" NAME="main Coverage Results" MODIFIED="1588667104350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$qrGen.coverage" NAME="qrGen Coverage Results" MODIFIED="1588521013337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/server$rgb24.coverage" NAME="rgb24 Coverage Results" MODIFIED="1588102363124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

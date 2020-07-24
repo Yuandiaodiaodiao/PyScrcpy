@@ -234,7 +234,7 @@ public class ScreenService extends Service {
 
                 @Override
                 public void onOutputFormatChanged(@NonNull MediaCodec codec, @NonNull MediaFormat format) {
-
+                    System.out.println("channged!!!!!!!!!!1!!!!");
                 }
             });
             mEncoder.start();

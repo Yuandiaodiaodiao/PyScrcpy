@@ -121,12 +121,12 @@ class Decoder {
 
 //                cout << "初始化图片大小= " << numBytes << " linesize= " << decode_frame->linesize[0]
 //                     << endl;
-//                cout << "解码width= " << codedW << " 解码heitht= " << codedH
-//                     << endl;
-//                cout << "预设width= " << decode_frame->width
-//                     << " 预设heitht= " << decode_frame->height << endl;
+                cout << "解码width= " << codedW << " 解码heitht= " << codedH
+                     << endl;
+              
             }
-
+            cout << "decode width= " << decode_frame->width
+                 << " decode height= " << decode_frame->height << endl;
             //转换+裁剪
             sws_scale( m_img_convert_ctx, (uint8_t const *const *) decode_frame->data,
                        decode_frame->linesize, 0, height, RGB_frame->data, RGB_frame->linesize );
