@@ -1,6 +1,8 @@
 # PyScrcpy
 android screen&amp;audio share used PyQt ffmpeg Websocket  
-
+## 演示
+https://www.bilibili.com/video/BV1Nt4y117ht
+## 性能
 安卓视频音频串流  
 scrcpy延迟100ms  
 PyScrcpy插adb走wifi传输延迟100-160ms  
