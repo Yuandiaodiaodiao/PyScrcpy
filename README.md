@@ -1,6 +1,8 @@
 # PyScrcpy
 android screen&amp;audio share used PyQt ffmpeg Websocket  
-
+## 演示
+https://www.bilibili.com/video/BV1Nt4y117ht
+## 性能
 安卓视频音频串流  
 scrcpy延迟100ms  
 PyScrcpy插adb走wifi传输延迟100-160ms  
@@ -9,11 +11,17 @@ PyScrcpy无线延迟100-300ms
 
 ## 使用方法
 1. 运行/server/main.py
-2. 安装app2/app/build/outputs/apk/debug/app-debug.apk
+2. 安装app2/app/build/outputs/apk/debug/app-debug.apk(release中有)
 3. 打开app 扫码运行 (需要>=android 8)
-    ## 参考文档
-    二维码扫描  
-    https://github.com/yipianfengye/android-zxingLibrary   
+## 注意事项
+1. server8.dll使用vs2019编译 可能会与您的windows出现不兼容的情况 需要您自己对/server/ffmpegLib中的target=server8进行重新编译  
+2.apk兼容性为api>=26 已经发布在release中 想自己build可以使用android studio对app2文件夹进行构建
+
+
+
+## 参考文档
+二维码扫描  
+https://github.com/yipianfengye/android-zxingLibrary   
 
     MediaProjection屏幕录制录音   
     https://github.com/yrom/ScreenRecorder  
