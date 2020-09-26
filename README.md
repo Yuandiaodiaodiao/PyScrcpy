@@ -18,6 +18,8 @@ PyScrcpy无线延迟100-300ms
 2.apk兼容性为api>=26 已经发布在release中 想自己build可以使用android studio对app2文件夹进行构建
 
 ## dll依赖问题 
+目前来说 我已经修复了这个问题 你可以直接启动main.py了  
+下面是解决方法  
 通过Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx64\x64> .\dumpbin.exe /dependents  
 可以查找dll依赖 对于不在环境变量里的dll 需要一个一个引入进来  
 并且python的ctypes进行dll引入的时候 需要使用绝对路径  
