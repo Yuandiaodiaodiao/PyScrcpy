@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = "MainActivity";
     private static String WS_URL = "ws://192.168.31.39:20482/ws";
     private static Integer SERVER_PORT = 20481;
+    private static Integer FPS = 30;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(),  ScreenService.class);
+                Intent intent = new Intent(getApplicationContext(), ScreenService.class);
                 stopService(intent);
 //                Intent service = new Intent(getApplicationContext(), ScreenService.class);
 //                service.putExtra("open", 1);
@@ -71,13 +73,17 @@ public class MainActivity extends AppCompatActivity {
 
         ZXingLibrary.initDisplayOpinion(this);
         String[] permissions = new String[]{Manifest.permission.
-                WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA,Manifest.permission.RECORD_AUDIO};
+                WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
         requestPermissions(permissions, 200);
 
         Button button = (Button) findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText ex = (EditText) findViewById(R.id.editText);
+                Integer fps = Integer.parseInt(ex.getText().toString());
+                FPS=fps;
+                ScreenService.FRAME_RATE=FPS;
 //                try{
 //                    mWebSocket.send("aaaaa");
 //                }catch (Exception e){
@@ -135,8 +141,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
                     String result = bundle.getString(CodeUtils.RESULT_STRING);
-                    TextView tv=(TextView)findViewById(R.id.textView2);
-                    WS_URL="ws://" + result + ":20482/ws";
+                    TextView tv = (TextView) findViewById(R.id.textView2);
+                    WS_URL = "ws://" + result + ":20482/ws";
                     tv.setText(WS_URL);
                     CountDownLatch countDownLatch = new CountDownLatch(1);//创建锁
                     SocketManager.Connect(result, SERVER_PORT);

@@ -83,6 +83,7 @@ void wait() {
 }
 int main() {
     system( "chcp 65001" );
+    printf("aaa");
     init( 1, 360, 640,360,640 );
     //    Decoder d = Decoder();
     wait();

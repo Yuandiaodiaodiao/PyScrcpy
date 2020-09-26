@@ -75,7 +75,7 @@ class Decoder {
         cout << "编码器打开成功" << endl;
     }
     void run() {
-
+        int frames=1;
         printf( "decoder w = %d ,h =%d \n", codec_ctx->width, codec_ctx->height );
         AVFrame *decode_frame = av_frame_alloc();
         AVFrame *RGB_frame = av_frame_alloc();
@@ -125,8 +125,13 @@ class Decoder {
                      << endl;
               
             }
-            cout << "decode width= " << decode_frame->width
+            frames++;
+            if(frames%1000==0){
+            frames=0;
+             cout << "decode width= " << decode_frame->width
                  << " decode height= " << decode_frame->height << endl;
+            }
+
             //转换+裁剪
             sws_scale( m_img_convert_ctx, (uint8_t const *const *) decode_frame->data,
                        decode_frame->linesize, 0, height, RGB_frame->data, RGB_frame->linesize );

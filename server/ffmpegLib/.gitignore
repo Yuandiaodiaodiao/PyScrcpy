@@ -1,2 +1,4 @@
 cmake-build-debug-vs
 cmake-build-release-vs
+cmake-build-debug-visual-studio
+cmake-build-release-visual-studio

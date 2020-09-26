@@ -112,7 +112,7 @@ public class ScreenService extends Service {
     private MediaCodec.BufferInfo mBufferInfo;
     private static final String MIME_TYPE = "video/avc";    // H.264 Advanced Video Coding
     private static final int BIT_RATE = (int) 10e6;
-    private static final int FRAME_RATE = 30;
+    public static  int FRAME_RATE = 30;
     private static final int IFRAME_INTERVAL = 5;
     private VirtualDisplay vd;
 

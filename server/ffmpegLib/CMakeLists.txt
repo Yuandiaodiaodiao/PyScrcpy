@@ -34,8 +34,10 @@ add_executable(memcpytest memcpytest.cpp)
 
 add_library(server8 SHARED server.cpp)
 target_link_libraries(server8 avformat avutil avcodec avdevice avfilter swscale)
+
+
 add_executable(server4 server.cpp)
-target_link_libraries(server4 avformat avutil avcodec avdevice avfilter swscale)
+target_link_libraries(server4 avformat avutil avcodec  swscale)
 
 if (CMAKE_BUILD_TYPE MATCHES "Release")
     add_definitions(/O2)
